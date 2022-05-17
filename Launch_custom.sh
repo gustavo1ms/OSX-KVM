@@ -5,7 +5,7 @@
 # Rebuild Opencore.qcow2 after making changes to config.plist and etc..
 echo 'Building new Opencore.qcow2..'
 pushd OpenCore-Catalina/
-mkdir -p EFI/OC/Resources
+sudo mkdir -p EFI/OC/Resources
 rm -f OpenCore.qcow2
 sudo ./opencore-image-ng.sh \
   --cfg config.plist \
@@ -14,11 +14,11 @@ sudo chown ubuntu:ubuntu OpenCore.qcow2
 popd
 
 if ! [ -d "/system_image/installers" ]; then
-  mkdir -p /system_image/installers
+  sudo mkdir -p /system_image/installers
 fi
 
 if ! [ -d "/system_image/osx-builder" ]; then
-  mkdir -p "/system_image/osx-builder"
+  sudo mkdir -p "/system_image/osx-builder"
 fi
 
 # Download and build installer image if no system drive found..
